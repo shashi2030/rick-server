@@ -36,13 +36,6 @@ router.post('/register', function (req, res) {
 
 });
 
-router.get('/test', function (req, res) {
-	res.status(200).json({
-		status:"passed",
-		message:"Test url hits"
-	});
-})
-
 // Character Filter
 router.post('/filters', function (req, res) {
     try {
