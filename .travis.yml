@@ -1,0 +1,16 @@
+language: generic
+sudo: required
+services:
+- docker
+before_install:
+- docker build -t shashi2030/rick-server -f Dockerfile.dev .
+script:
+- docker run -e CI=true shashi2030/rick-server
+deploy:
+  provider: heroku
+  api_key:
+    secure: fsGPsJUYKLHFk3CIodmKMD4Ky7sc+DHWCYK40HQbXegX9WvVRdk09JPOgomB6JuwLWvU3oP6nBOg7xcumraPWbYeHoVonL1fujgOhqbdMq1SF8UFt2diD8c7bw0MGuOV47bTn2OxQiAmmhz0KOO5mvE1r9KYdX7EEIquV+rott5u3baELrVH9fcrpDOCYTVr3NIYNGI45TawrZGSNpw5zowYPpkSF56HqPqgSLUBbh2DrYe4h0AsDDf4YiP2w9LDmVYw2+GFs4cnKIUWVQODd4xnZKt3qD2e6aIV+Rlp0AA90llXEO9DW7+6g/YvgPBnkyncKLPXqKzWfJAZR69c6QXjLJZoptPPT05Iiu6YXDK90ht4xSAoRWs4wWuZDN6RtoDlJRU4CnOFFk/vNS8waLg6jRMebO1G4IlAQ0EXYwgHABDvrYbslrOxvOLJLQA3VVgJtSSOeeifa+wRJCZxl/2xleYFt4diYTA+bZkRkR1MrTXlPToIeihURADkPGNPL7dp/gl40BrUBPkT1mutdXnuL/rJPIJvuIDJOfONt4BlrccKtdzZPnBRZAjLQNjdTk0QYr6VhRd2RRLNpxvJarp/xib5YeNtAIqZUJtPnQLqQBjzj39U69LABws7Y7fYfFhIea6Ns5SesR8YnjWPKHEprOvPnIIyYW+gy3hntXg=
+  skip_cleanup: true
+  app: rick-server
+  on:
+    repo: shashi2030/rick-server
