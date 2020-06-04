@@ -1,4 +1,6 @@
-language: generic
+language: node_js
+node_js:
+- 10.15.3
 sudo: required
 services:
 - docker
@@ -6,12 +8,12 @@ before_install:
 - docker build -t shashi2030/rick-server -f Dockerfile.dev .
 script:
 - docker run -e CI=true shashi2030/rick-server
+- true
 deploy:
   provider: heroku
   api_key:
-    secure: fsGPsJUYKLHFk3CIodmKMD4Ky7sc+DHWCYK40HQbXegX9WvVRdk09JPOgomB6JuwLWvU3oP6nBOg7xcumraPWbYeHoVonL1fujgOhqbdMq1SF8UFt2diD8c7bw0MGuOV47bTn2OxQiAmmhz0KOO5mvE1r9KYdX7EEIquV+rott5u3baELrVH9fcrpDOCYTVr3NIYNGI45TawrZGSNpw5zowYPpkSF56HqPqgSLUBbh2DrYe4h0AsDDf4YiP2w9LDmVYw2+GFs4cnKIUWVQODd4xnZKt3qD2e6aIV+Rlp0AA90llXEO9DW7+6g/YvgPBnkyncKLPXqKzWfJAZR69c6QXjLJZoptPPT05Iiu6YXDK90ht4xSAoRWs4wWuZDN6RtoDlJRU4CnOFFk/vNS8waLg6jRMebO1G4IlAQ0EXYwgHABDvrYbslrOxvOLJLQA3VVgJtSSOeeifa+wRJCZxl/2xleYFt4diYTA+bZkRkR1MrTXlPToIeihURADkPGNPL7dp/gl40BrUBPkT1mutdXnuL/rJPIJvuIDJOfONt4BlrccKtdzZPnBRZAjLQNjdTk0QYr6VhRd2RRLNpxvJarp/xib5YeNtAIqZUJtPnQLqQBjzj39U69LABws7Y7fYfFhIea6Ns5SesR8YnjWPKHEprOvPnIIyYW+gy3hntXg=
+    secure: C24Ja7qIQNjW1IJ5nXc+EHU7Ffn1nferEEb7uVw1iPWTuX9RLjEgEfrpcPyfwJ+rK/UgTIaYd0TPFp+pgMTYvCvR7RJfZ8r6xNNEV8axcCFgr++h+QO/MtiGoo53y3yTWCA5oXOeaGKNtJKb0Gcchfu1GH48J0kC9U3ACd8JFvd4vVANDXeZjTsYdVMbHNzIeb/KIg7zOUibJ07mxc5h+XwRJvwtXFaHfpWk8wy1z6pvdmr5nWa32VlkTTVk5GR5e3zWiePw/rorUti8fy2vNO95fM05cLRMpsj8zWgAVPAF4oL1rHb1FqUboTAfC0Dm83KOkOxTQGbBN8GIbTrUL/xpQd42YIQdXqVyYvRpibDiyR67l0UNZd5X3g0t/U7izZeHbLby937ZLvciPhjeD9RvrJnVbAgcZF1JAVxXlq72DlTJeP3WmirQMoZzdtc2ISe/PF8dGtTGinnklHdbT9qZ6A2zGjgQkRnQkw07ZWCTF6rF90i36p80oVR8Am+0GqNQpEPxuIbh4gYN5iYK5xrjNxwWWQAhCJAfnprwSDqsZa/kpNjVzapteuQ7/jIZyTL6nUGYdvHjVEr2AYYeT4U1YtKrehI54TGEOlXfNwar/2GvvWpORHekZ+UOuVwfJMRGA1KVnChSKNPsZErkbMdevncfWryEW9ldlnWuM8I=
   skip_cleanup: true
   app: rick-server
   on:
     repo: shashi2030/rick-server
-    
