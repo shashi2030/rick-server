@@ -36,6 +36,10 @@ router.post('/register', function (req, res) {
 
 });
 
+router.post('/test', function (req, res) {
+	res.send("this is a test msg");
+})
+
 // Character Filter
 router.post('/filters', function (req, res) {
     try {
